@@ -3,102 +3,426 @@
 <head>
 <title>Cross Country Backcountry XCBC Guide</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="assets" href="/assets">
 <link rel="stylesheet" href="style.css">
 <script src="script.js"></script>
 </head>
 
 <body>
-  <h2>My Customers</h2>
+  <h2>XC BC</h2>
 
-  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for your adventure.." title="Type in a name">
+<input type="text" id="myInput" onkeyup="searchTable()" placeholder="Search for your adventure.." title="Live search">
+
+<div id="myBtnContainer">
+<button class="btn" onclick="filterSelection('HWY49')"> Highway 49</button>
+<button class="btn" onclick="filterSelection('I80')"> I80</button>
+<button class="btn" onclick="filterSelection('NLakeTahoe')"> N. Lake Yahoe</button>
+<button class="btn" onclick="filterSelection('HWY89')">Highway 89</button>
+<button class="btn" onclick="filterSelection('Truckee')"> Truckee</button>
+<button class="btn" onclick="filterSelection('WestShoreLakeTahoe')">West Shore Lake Tahoe</button>
+<button class="btn" onclick="filterSelection('SouthLakeTahoe')">South Lake Tahoe</button>
+<button class="btn" onclick="filterSelection('HWY50')">Highay 50</button>
+<button class="btn" onclick="filterSelection('LutherPass')">Luther Pass</button>
+<button class="btn" onclick="filterSelection('HWY88')">Highway 88</button>
+<button class="btn" onclick="filterSelection('HWY4')">Highway 4</button>
+<button class="btn" onclick="filterSelection('HWY108')">Highway 108</button>
+<button class="btn" onclick="filterSelection('Yosemite')">Yosemite</button>
+</div>
+
+
 
 <table id="myTable">
+
+  <colgroup>
+      <col span="1" style="background-color:#f8f8f8;">
+      <col style="">
+    </colgroup>
+
 <tr class="header">
-  <th onclick="sortTable(0)" style="width:30%;">Trip</th>
-  <th onclick="sortTable(1)" style="width:50%;">Location</th>
-  <th onclick="sortTable(2)" style="width:10%;">Length</th>
+  <th onclick="sortTable(0)" style="width:20%;">Trip</th>
+  <th onclick="sortTable(1)" style="width:50%;">Locations</th>
+  <th onclick="sortTable(2)" style="width:10%;">Length / Miles</th>
 </tr>
-<tr>
+<tr class="filterDiv Truckee">
   <td>Andesite Peak</td>
-  <td>Donner Summit / Andesite Peak</td>
+  <td class="location">Donner Summit / Andesite Peak</td>
   <td>4.6</td>
 </tr>
-<tr>
+<tr class="filterDiv Truckee">
   <td>Andesite Ridge and Peak</td>
-  <td>Donner Summit / Andesite Ridge / Andesite Peak</td>
+  <td class="location">Donner Summit / Andesite Ridge / Andesite Peak</td>
   <td>3.4</td>
 </tr>
-<tr>
+<tr class="filterDiv HWY88">
   <td>Andesite Ridge Loop</td>
-  <td>Donner Summit / Andesite Ridge / Andesite Peak / Castle Pass / Castle Valley</td>
+  <td class="location">Donner Summit / Andesite Ridge / Andesite Peak / Castle Pass / Castle Valley</td>
   <td>4.5</td>
 </tr>
-<tr>
+<tr class="filterDiv Truckee">
   <td>Angora Lookout</td>
-  <td>Angora Lookout</td>
+  <td class="location">Angora Lookout</td>
   <td>3.8</td>
 </tr>
-<tr>
+<tr class="filterDiv HWY89">
   <td>Angora Lakes</td>
-  <td>Angora Lookout / Angora Lakes</td>
+  <td class="location">Angora Lookout / Angora Lakes</td>
   <td>7.2</td>
 </tr>
-<tr>
+<tr class="filterDiv Truckee">
   <td>Aspen Meadow</td>
-  <td>Crabtree Trailhead / Crabtree Road / Aspen Meadow</td>
+  <td class="location">Crabtree Trailhead / Crabtree Road / Aspen Meadow</td>
   <td>4.4</td>
 </tr>
-<tr>
+<tr class="filterDiv Truckee">
   <td>Beartrap Meadow Loop</td>
-  <td>Yuba Pass / Beartrap Meadow</td>
+  <td class="location">Yuba Pass / Beartrap Meadow</td>
   <td>8.0</td>
 </tr>
-<tr>
-<td>Becker Peak</td>
-<td>Echo Lake Sno-Park / Becker Peak</td>
-<td>3.6</td>
+<tr class="filterDiv Truckee">
+ <td>Becker Peak</td>
+ <td class="location">Echo Lake Sno-Park / Becker Peak</td>
+ <td>3.6</td>
 </tr>
-<td>Benson Hut</td>
-<td>Sugar Bowl Ski Resort / Mt. Lincoln / Anderson Peak / Benson Hut</td>
-<td>10.0</td>
+<tr class="filterDiv Truckee">
+ <td>Benson Hut</td>
+ <td class="location">Sugar Bowl Ski Resort / Mt. Lincoln / Anderson Peak / Benson Hut</td>
+ <td>10.0</td>
 </tr>
-<tr>
-<td>Benson and Bradley Huts Via Emergency Escape Route</td>
-<td>Sugar Bowl Ski Resort / Mt. Lincoln / Anderson Peak / Benson Hut / South Fork of Cold Creek / Coldstream drainage / Deep Creek / Bradley Hut</td>
-<td>14.0</td>
+<tr class="filterDiv Truckee">
+ <td>Benson and Bradley Huts Via Emergency Escape Route</td>
+ <td class="location">Sugar Bowl Ski Resort / Mt. Lincoln / Anderson Peak / Benson Hut / South Fork of Cold Creek / Coldstream drainage / Deep Creek / Bradley Hut</td>
+ <td>14.0</td>
 </tr>
-<tr>
-<td>Andesite Ridge Loop</td>
-<td>Donner Summit / Andesite Ridge / Andesite Peak / Castle Pass / Castle Valley</td>
-<td>4.5</td>
+<tr class="filterDiv Truckee">
+ <td>Andesite Ridge Loop</td>
+ <td class="location">Donner Summit / Andesite Ridge / Andesite Peak / Castle Pass / Castle Valley</td>
+ <td>4.5</td>
 </tr>
-<tr>
-<td>Angora Lookout</td>
-<td>Angora Lookout</td>
-<td>3.8</td>
+<tr class="filterDiv Truckee">
+ <td>Angora Lookout</td>
+ <td class="location">Angora Lookout</td>
+ <td>3.8</td>
 </tr>
-<tr>
-<td>Angora Lakes</td>
-<td>Angora Lookout / Angora Lakes</td>
-<td>7.2</td>
+<tr class="filterDiv Truckee">
+ <td>Angora Lakes</td>
+ <td class="location">Angora Lookout / Angora Lakes</td>
+ <td>7.2</td>
 </tr>
-<tr>
-<td>Aspen Meadow</td>
-<td>Crabtree Trailhead / Crabtree Road / Aspen Meadow</td>
-<td>4.4</td>
+<tr class="filterDiv Truckee">
+ <td>Aspen Meadow</td>
+ <td class="location">Crabtree Trailhead / Crabtree Road / Aspen Meadow</td>
+ <td>4.4</td>
 </tr>
-<tr>
-<td>Beartrap Meadow Loop</td>
-<td>Yuba Pass / Beartrap Meadow</td>
-<td>8.0</td>
+<tr class="filterDiv Truckee">
+ <td>Beartrap Meadow Loop</td>
+ <td class="location">Yuba Pass / Beartrap Meadow</td>
+ <td>8.0</td>
 </tr>
-<tr>
-<td>Becker Peak</td>
-<td>Echo Lake Sno-Park / Becker Peak</td>
-<td>3.6</td>
+<tr class="filterDiv Truckee">
+ <td>Becker Peak</td>
+ <td class="location">Echo Lake Sno-Park / Becker Peak</td>
+ <td>3.6</td>
+</tr>
+<tr class="filterDiv Truckee">
+ <td>Benson Hut</td>
+ <td class="location">Sugar Bowl Ski Resort / Mt. Lincoln / Anderson Peak / Benson Hu</td>
+ <td>10.0</td>
+</tr>
+<tr class="filterDiv Truckee">
+ <td>Benson and Bradley Huts Via Emergency Escape Route</td>
+ <td class="location">Sugar Bowl Ski Resort
+Mt. Lincoln / Anderson Peak / Benson Hut / South Fork of Cold Creek / Coldstream drainage / Deep Creek / Bradley Hut</td>
+ <td>14.0</td>
+</tr>
+<tr class="filterDiv Truckee">
+ <td>Benwood Meadow</td>
+ <td class="location">Echo Summit / Rock Garden Loop / Frog Pond Loop / Benwood Meadow</td>
+ <td>0.8 or 1.7</td>
+</tr>
+<tr class="filterDiv Truckee">
+ <td>Benwood Meadow Drainage</td>
+ <td class="location">Echo Summit / Rock Garden Loop / Frog Pond Loop / Benwood Meadow</td>
+ <td>2.6</td>
+</tr>
+<tr class="filterDiv Truckee">
+ <td>Berts Lake and Peak 6836</td>
+ <td class="location">Loon Lake / Loon Lake Chalet / Berts Lake / Peak 6836</td>
+ <td>2.4</td>
+</tr>
+<tr class="filterDiv Truckee">
+ <td>Berts Lake and Chipmunk Loop</td>
+ <td class="location">Loon Lake / Loon Lake Chalet / Berts Lake / Peak 6836 / Chipmunk Bluff</td>
+ <td>2.1</td>
+</tr>
+<tr class="filterDiv Truckee">
+ <td>Big Meadow</td>
+ <td class="location">Big Meadow HWY 89</td>
+ <td>0.8</td>
+</tr>
+<tr class="filterDiv Truckee">
+ <td>Big Meadow Campground</td>
+ <td class="location">Big Meadow Campground (Highway 4)</td>
+ <td>1.0</td>
+</tr>
+<tr class="filterDiv Truckee">
+ <td>Blue Creek Point</td>
+ <td class="location">Cabbage Patch / Blue Creek Point</td>
+ <td>5.2</td>
+</tr>
+<tr class="filterDiv Truckee">
+ <td>Blue Creek Point Loop</td>
+ <td class="location">Cabbage Patch / Blue Creek Point</td>
+ <td>5.5</td>
+</tr>
+<tr class="filterDiv Truckee">
+ <td>Boreal Ridge From Clair Tappaan Lodge</td>
+ <td class="location">Clair Tappaan Lodge / Boreal Ridge</td>
+ <td>3.6</td>
+</tr>
+<tr class="filterDiv Truckee">
+ <td>Bradley Hut</td>
+ <td class="location">Pole Creek / Bradley Hut</td>
+ <td>9.4</td>
+</tr>
+<tr class="filterDiv Truckee">
+ <td>Bradley Hut Loop</td>
+ <td class="location">Pole Creek / Bradley Hut</td>
+ <td>11.2</td>
+</tr>
+<tr class="filterDiv Truckee">
+ <td>Bradley Hut and Deep Creek</td>
+ <td class="location">Pole Creek / Bradley Hut / Deep Creek</td>
+ <td>8.7</td>
+</tr>
+<tr class="filterDiv Truckee">
+ <td>Burst Rock from Burst Rock Junction</td>
+ <td class="location">Burst Rock / Burst Rock Junction</td>
+ <td>4.8</td>
+</tr>
+<tr class="filterDiv Truckee">
+ <td>Cabbage Patch to Poison Spring</td>
+ <td class="location">Cabbage Patch / Poison Spring</td>
+ <td>5.4 or 5.6</td>
+</tr>
+<tr class="filterDiv Truckee">
+ <td>Cabin Creek Loop</td>
+ <td class="location">Cabin Creek</td>
+ <td>4.4</td>
+</tr>
+<tr class="filterDiv HWY88">
+ <td>Caple Lakes</td>
+ <td class="location">Caple Lakes</td>
+ <td>4.4</td>
+</tr>
+<tr class="filterDiv HWY88">
+ <td>Caples Lake to Kirkwood</td>
+ <td class="location">Caples Lake / Kirkwood</td>
+ <td>4.7</td>
+</tr>
+<tr class="filterDiv HWY88">
+ <td>Carson Pass to Big Meadow</td>
+ <td class="location">Carson Pass
+Meiss Saddle / Meiss Ski Hut / Meiss Lake / Round Lake / Big Meadow</td>
+ <td>7.4</td>
+</tr>
+<tr class="filterDiv HWY88">
+ <td>Carson Pass to Caples Lake Via Little Round Top</td>
+ <td class="location">Carson Pass / Meiss Saddle / Little Round Top / Schneider Camp / Caples Lake</td>
+ <td>8.4</td>
+</tr>
+<tr class="filterDiv HWY88">
+ <td>Carson Pass to Caples Lake Via Showers Lake</td>
+ <td class="location">Carson Pass
+Meiss Saddle Meiss Ski Hut Showers Lake Schneider Camp Caples Lake</td>
+ <td>10.4</td>
+</tr>
+<tr class="filterDiv HWY88">
+ <td>Carson Pass to Caples Lake Via Winnemucca Lake</td>
+ <td class="location">Carson Pass
+Winnemucca Lake Round Top Lake Emigrant Lake Drainage Caples Lake Kirkwood Cross Country and Snowshoe Center</td>
+ <td>7.7</td>
+</tr>
+<tr class="filterDiv HWY88 HWY50">
+ <td>Carson Pass to Echo Summit</td>
+ <td class="location">Carson Pass
+Meiss Saddle Meiss Ski Hut Showers Lake Bryan Meadow Benwood Meadow Echo Summit</td>
+ <td>10.4</td>
+</tr>
+<tr class="filterDiv HWY88">
+ <td>Carson Pass to Kirkwood</td>
+ <td class="location">Carson Pass
+Winnemucca Lake Round Top Lake Emigrant Lake Drainage Kirkwood Ski Resort</td>
+ <td>6.4</td>
+</tr>
+
+
+
+
+
+<tr class="filterDiv HWY4">
+ <td>	The Knob</td>
+ <td class="location">Crabtree Trailhead Crabtree Road Aspen Meadow  Old Crabtree Road The Knob</td>
+ <td>9.4</td>
+</tr>
+
+<tr class="filterDiv HWY4">
+ <td>	The Knob Loop</td>
+ <td class="location">Crabtree Trailhead Crabtree Road Aspen Meadow Old Crabtree Road The Knob Gooseberry Road Gooseberry Trailhead</td>
+ <td>8.0</td>
+</tr>
+
+<tr class="filterDiv NLakeTahoe">
+ <td>	Third Creek</td>
+ <td class="location">Third Creek Tahoe Meadows</td>
+ <td>5.7</td>
+</tr>
+
+<tr class="filterDiv Yosemite">
+ <td>	Tioga Pass Road - Westside</td>
+ <td class="location">Crane Flat Tioga Pass Road Gin Flat</td>
+ <td>6.0</td>
+</tr>
+
+<tr class="filterDiv HWY49">
+ <td>Three Knobs</td>
+ <td class="location">Yuba Pass Lunch Creek</td>
+ <td>5.3</td>
+</tr>
+
+<tr class="filterDiv HWY89">
+ <td>	Thompson Meadow</td>
+ <td class="location">Cabbage Patch Thompson Meadow</td>
+ <td>3.4</td>
+</tr>
+
+<tr class="filterDiv HWY89">
+ <td>	Thompson Peak</td>
+ <td class="location">Grass Lake Free Meadows Thompson Peak</td>
+ <td>7.6</td>
+</tr>
+
+<tr class="filterDiv HWY88">
+ <td>	Tragedy Creek</td>
+ <td class="location">Shot Rock Tragedy Creek</td>
+ <td>2.0</td>
+</tr>
+
+<tr class="filterDiv HWY88">
+ <td>	Tragedy Spring to Maiden Grave</td>
+ <td class="location">Tragedy Spring Peak 8096 Peak 7617 Maidens Grave</td>
+ <td>3.1</td>
+</tr>
+
+<tr class="filterDiv HWY88">
+ <td>	Tragedy Spring to Silver Lake Via Porthole Gap</td>
+ <td class="location">Tragedy Spring Porthole Gap Stockton Municipal Camp Silver Lake Kaye's Resort</td>
+ <td>4.5</td>
+</tr>
+
+<tr class="filterDiv HWY88">
+ <td>	Tragedy Spring to Silver Lake Via Ridge and Option 1</td>
+ <td class="location">Tragedy Spring Peak 7620 Silver Lake</td>
+ <td>3.5</td>
+</tr>
+
+<tr class="filterDiv HWY88">
+ <td>	Tragedy Spring to Silver Lake Via Ridge and Option 2</td>
+ <td class="location">Tragedy Spring Peak 7620 Silver Lake</td>
+ <td>3.8</td>
+</tr>
+
+<tr class="filterDiv HWY88">
+ <td>Tragedy Spring to Silver Lake Via Summer Trail</td>
+ <td class="location">Tragedy Spring
+Porthole Gap Plasse Allen Plasse Resort Silver Lake Kaye's Resort</td>
+ <td>7.0</td>
+</tr>
+
+<tr class="filterDiv HWY88">
+ <td>Trail Junction Via the Ridge</td>
+ <td class="location">Trail Junction</td>
+ <td>4.0</td>
+</tr>
+
+<tr class="filterDiv HWY88">
+ <td>Trail Junction Via the Road</td>
+ <td class="location">Trail Junction</td>
+ <td>5.0</td>
+</tr>
+
+<tr class="filterDiv HWY89">
+ <td>Truckee River</td>
+ <td class="location">Tahoe City Truckee River</td>
+ <td>2.0</td>
+</tr>
+
+<tr class="filterDiv HWY88">
+ <td>Two Sentinels</td>
+ <td class="location">Carson Spur Two Sentinels</td>
+ <td>2.8</td>
+</tr>
+
+<tr class="filterDiv HWY50">
+ <td>Van Vleck Bunkhouse</td>
+ <td class="location">Loon Lake Van Vleck Storm Shelter Van Vleck Bunkhouse</td>
+ <td>11.0</td>
+</tr>
+
+<tr class="filterDiv HWY50">
+ <td>Van Vleck Storm Shelter</td>
+ <td class="location">Loon Lake Van Vleck Storm Shelter</td>
+ <td>4.8</td>
+</tr>
+
+<tr class="filterDiv HWY89">
+ <td>Waterhouse Peak</td>
+ <td class="location">Grass Lake Waterhouse Peak Powderhouse Peak</td>
+ <td>3.2 or 4.2</td>
+</tr>
+
+<tr class="filterDiv HWY89">
+ <td>Wilderness Boundary Loop</td>
+ <td class="location">Carson Pass Woods Lake road</td>
+ <td>2.9</td>
+</tr>
+
+<tr class="filterDiv HWY89">
+ <td>Winnemucca Lake</td>
+ <td class="location">Carson Pass Winnemucca Lake</td>
+ <td>3.6</td>
+</tr>
+
+<tr class="filterDiv HWY89">
+ <td>Winnemucca Lake and Lost Cabin Mine Loop</td>
+ <td class="location">Carson Pass Winnemucca Lake Round Top Lake Lost Cabin Mine</td>
+ <td>6.3</td>
+</tr>
+
+<tr class="filterDiv HWY89">
+ <td>Winnemucca Lake and Woods Lake Loop</td>
+ <td class="location">Carson Pass Winnemucca Lake Woods Lake</td>
+ <td>4.9</td>
+</tr>
+
+<tr class="filterDiv HWY89">
+ <td>Woods Lake</td>
+ <td class="location">Carson Pass Woods Lake Lost Cabin Mine</td>
+ <td>3.6</td>
+</tr>
+
+<tr class="filterDiv HWY49">
+ <td>Yuba Pass Vista</td>
+ <td class="location">Yuba Pass Yuba Pass Vista</td>
+ <td>3.0</td>
+</tr>
+
+
+<tr class="filterDiv HWY108">
+ <td>Zig-Zag</td>
+ <td class="location">Gooseberry Road</td>
+ <td>1.6</td>
 </tr>
 </table>
-
 
 </body>
 </html>
